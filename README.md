@@ -2,15 +2,25 @@
 
 > One key. Every engine.
 
-OMNIS KEY is a COSMIC-native agent OS — an OpenClaw fork with JourdanLabs' intelligence stack embedded at the API layer.
+OMNIS KEY is a COSMIC-native agent OS — an OpenClaw fork built for the JourdanLabs intelligence stack.
 
-## What it is
+---
 
-The shell anyone can install. The mind only we control.
+## ⚠️ Important
 
-- **CLI**: `omnis` — full agent runtime, multi-channel, tool-calling
-- **COSMIC API**: plug in your API key, unlock the full intelligence stack
-- **Plugin system**: install domain engines (`omnis install cosmic-meteor`)
+**This project provides the OMNIS KEY runtime.**
+
+Advanced intelligence features (COSMIC, AURORA, VELLUM, LUNA) are **NOT included** and require separate licensed access via `api.omniskey.ai`.
+
+Without an API key:
+- Basic LLM execution works
+- COSMIC intelligence is unavailable
+- AURORA scoring is unavailable
+- LUNA persistent memory is unavailable
+
+To unlock full capabilities: [omniskey.ai](https://omniskey.ai)
+
+---
 
 ## Install
 
@@ -20,36 +30,50 @@ omnis init
 omnis run "your prompt"
 ```
 
-## Intelligence Stack (API)
-
-Connect to `api.omniskey.ai` for:
-
-| Engine | Purpose |
-|--------|---------|
-| AURORA | Output quality gate — 0.80 threshold, no hallucinations ship |
-| VELLUM | Chain-of-custody for every LLM call |
-| LUNA | Persistent cross-session memory |
-| NOVA | Causal reasoning pipeline |
-| PULSAR | Adversarial stress-testing |
-| HEIMDALL | Enterprise trust + audit (enterprise tier) |
+## With COSMIC Intelligence
 
 ```bash
-omnis config set api-key <your-omnis-key>
+export OMNIS_API_KEY=your-key-here
+omnis run "analyze mineral rights in Ward County TX"
 ```
 
-## COSMIC Plugins
+## Plugin System
 
 ```bash
-omnis install cosmic-meteor   # mineral & energy intelligence
-omnis install cosmic-nebula   # agriculture & natural resources
-omnis install cosmic-quasar   # quantitative scoring & ranking
+omnis install cosmic-meteor    # mineral & energy intelligence
+omnis install cosmic-nebula    # agriculture & natural resources
+omnis install cosmic-quasar    # quantitative scoring & ranking
 ```
 
-## License
-
-MIT — fork freely. The shell is yours.  
-The intelligence lives at api.omniskey.ai.
+Plugins are thin API wrappers. Intelligence lives at `api.omniskey.ai`.
 
 ---
 
-*Built by JourdanLabs · omniskey.ai*
+## Architecture
+
+```
+omnis-key (this repo — MIT)
+    └── Calls api.omniskey.ai for:
+         ├── AURORA  — output quality gate
+         ├── VELLUM  — chain-of-custody
+         ├── LUNA    — persistent memory
+         ├── NOVA    — causal reasoning
+         ├── PULSAR  — adversarial testing
+         └── COSMIC  — domain intelligence engines
+```
+
+"Let them copy the tool. Make it impossible to copy the mind."
+
+---
+
+## License
+
+MIT — fork freely. The shell is yours.
+The intelligence lives at `api.omniskey.ai`.
+
+MIT License · Copyright (c) 2025 Peter Steinberger (original OpenClaw)  
+OMNIS KEY fork by JourdanLabs · omniskey.ai
+
+---
+
+*Built by JourdanLabs*
