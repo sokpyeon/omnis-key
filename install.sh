@@ -1,8 +1,14 @@
 #!/bin/bash
 # OMNIS KEY — One-line installer
 # curl -fsSL https://raw.githubusercontent.com/sokpyeon/omnis-key/main/install.sh | bash
+# OR: bash <(curl -fsSL https://raw.githubusercontent.com/sokpyeon/omnis-key/main/install.sh)
 
 set -e
+
+# Re-exec with /dev/tty if stdin is not a terminal (pipe mode)
+if [ ! -t 0 ]; then
+  exec bash <(curl -fsSL https://raw.githubusercontent.com/sokpyeon/omnis-key/main/install.sh) </dev/tty
+fi
 
 OMNIS_DIR="$HOME/.omnis-key"
 OMNIS_PORT="${OMNIS_PORT:-18791}"
