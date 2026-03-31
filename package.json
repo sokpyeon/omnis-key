@@ -1,17 +1,17 @@
 {
-  "name": "openclaw",
-  "version": "2026.3.30",
-  "description": "Multi-channel AI gateway with extensible messaging integrations",
+  "name": "omnis-key",
+  "version": "1.0.0",
+  "description": "OMNIS KEY \u2014 COSMIC-native agent OS. One key. Every engine.",
   "keywords": [],
-  "homepage": "https://github.com/openclaw/openclaw#readme",
+  "homepage": "https://omniskey.ai",
   "bugs": {
     "url": "https://github.com/openclaw/openclaw/issues"
   },
   "license": "MIT",
-  "author": "",
+  "author": "JourdanLabs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openclaw/openclaw.git"
+    "url": "https://github.com/sokpyeon/omnis-key"
   },
   "bin": {
     "openclaw": "openclaw.mjs"
