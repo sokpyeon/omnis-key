@@ -44,7 +44,9 @@ cat > "$OMNIS_DIR/openclaw.json" << CFGEOF
 {
   "gateway": {
     "port": $OMNIS_PORT,
-    "token": "$GW_TOKEN"
+    "auth": {
+      "token": "$GW_TOKEN"
+    }
   },
   "plugins": {
     "entries": {
@@ -56,9 +58,6 @@ cat > "$OMNIS_DIR/openclaw.json" << CFGEOF
         }
       }
     }
-  },
-  "llm": {
-    "default": "anthropic/claude-sonnet-4-5"
   },
   "env": {
     "OMNIS_API_KEY": "$OMNIS_API_KEY"
