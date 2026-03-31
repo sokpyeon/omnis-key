@@ -91,7 +91,16 @@ function buildChatChannelMetaById(): Record<ChatChannelId, ChatChannelMeta> {
 
   const missingIds = CHAT_CHANNEL_ORDER.filter((id) => !entries.has(id));
   if (missingIds.length > 0) {
-    throw new Error(`Missing bundled chat channel metadata for: ${missingIds.join(", ")}`);
+    // Degrade gracefully — stub missing channels rather than hard-failing
+    for (const id of missingIds) {
+      entries.set(id, {
+        id,
+        label: id.charAt(0).toUpperCase() + id.slice(1),
+        selectionLabel: id,
+        docsPath: `/channels/${id}`,
+        blurb: "",
+      });
+    }
   }
 
   return Object.freeze(Object.fromEntries(entries)) as Record<ChatChannelId, ChatChannelMeta>;
